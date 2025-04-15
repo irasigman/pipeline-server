@@ -13,7 +13,7 @@ class WebScrape(PGBase):
 
     def retrieve_page_markdown(self, url):
         self.connect()
-        page = self.get_recent_page_by_url(url, days=1)
+        page = self.get_recent_page_by_url(url, days=10)
         if page:
             self.disconnect()
             return page.markdown

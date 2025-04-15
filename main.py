@@ -6,8 +6,13 @@ from fastapi import FastAPI, Request
 import logfire
 from pymongo.errors import PyMongoError
 
+from app.controllers import data_model_controller
 from demos.dice_roll import assistant
 import nest_asyncio
+
+from dotenv import load_dotenv
+
+load_dotenv('./.env')
 
 app = FastAPI()
 nest_asyncio.apply()
@@ -18,6 +23,7 @@ logfire.instrument_pymongo(capture_statement=True)
 
 from demos.mongodb import write_demo, client, collection
 
+app.include_router(data_model_controller.router, prefix="/model", tags=["Data Model"])
 
 @app.post("/")
 async def get_response(request: Request):

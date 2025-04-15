@@ -1,0 +1,30 @@
+{
+    "query": "Find find the top articles on hackernews which are about ai",
+    "data_model": {
+        "name": "NewsModel",
+        "description": "models the news",
+        "fields": [
+        {
+            "name": "title",
+            "description": "title: Title of the article"
+        },
+        {
+            "name": "ai",
+            "description": "ai: the article is likely to be about AI or ML"
+        },
+        {
+            "name": "category",
+            "description": "category: TECHNOLOGY or BUSINESS or HEALTH or CULTURE or TRAVEL"
+        },
+        {
+            "name": "votes",
+            "description": "votes: the number of votes"
+        },
+        {
+            "name": "freshness",
+            "description": "freshness: this is a daily leaderboard of posts, so older than a day is stale and younger than 12 hrs is fresh, else normal"
+        }
+        ]
+
+    }
+}
