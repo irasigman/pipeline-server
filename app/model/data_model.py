@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, Field
 
 
@@ -11,6 +11,8 @@ class DataModel(BaseModel):
     name: str = Field(description="Name of the model")
     description: str = Field(description="Description of the model")
     fields: List[ModelField] = Field(description="List of fields in the model")
+    # optional primary field identifier
+    primary_field: Optional[str] = Field(default=None, description="Primary field identifier")
 
 
 from typing import Any, Dict, Type, List as ListType, Optional, Union, get_type_hints
@@ -91,3 +93,18 @@ def get_field_descriptions(
         return descriptions
     else:
         return join_delimiter.join(descriptions.values())
+
+
+def get_data_model_primary_keys(
+    data_model: List[DataModel]
+):
+    """
+    Get the primary keys from a list of DataModel instances.
+
+    Args:
+        data_model: A list of DataModel instances
+
+    Returns:
+        A list of primary key names
+    """
+    return [model.primary_field for model in data_model if model.primary_field]

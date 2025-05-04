@@ -6,7 +6,7 @@ from fastapi import FastAPI, Request
 import logfire
 from pymongo.errors import PyMongoError
 
-from app.controllers import data_model_controller
+from app.controller import data_model_controller
 from demos.dice_roll import assistant
 import nest_asyncio
 
@@ -17,9 +17,9 @@ load_dotenv('./.env')
 app = FastAPI()
 nest_asyncio.apply()
 
-log = logfire.configure()
-logfire.instrument_fastapi(app)
-logfire.instrument_pymongo(capture_statement=True)
+# log = logfire.configure()
+# logfire.instrument_fastapi(app)
+# logfire.instrument_pymongo(capture_statement=True)
 
 from demos.mongodb import write_demo, client, collection
 

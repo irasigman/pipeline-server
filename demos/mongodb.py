@@ -21,8 +21,8 @@ def write_to_mongo(data):
 
 def write_demo():
     """
-    Write a demo document to MongoDB.
-    :return: The ID of the inserted document.
+    Write a demo database to MongoDB.
+    :return: The ID of the inserted database.
     """
 
     data = {
@@ -37,8 +37,8 @@ def write_demo():
 
 def update_document_by_id(document_id, update_data):
     """
-    Update a document in MongoDB by its ID.
-    :param document_id: The ID of the document to update.
+    Update a database in MongoDB by its ID.
+    :param document_id: The ID of the database to update.
     :param update_data: The data to update.
     :return: The result of the update operation.
     """

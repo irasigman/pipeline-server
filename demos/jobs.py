@@ -2,7 +2,7 @@ from celery import Celery
 import logfire
 from celery.signals import worker_init
 
-log = logfire.configure()
+# log = logfire.configure()
 
 @worker_init.connect()
 def init_worker(*args, **kwargs):

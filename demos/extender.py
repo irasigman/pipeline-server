@@ -17,8 +17,6 @@ from data.web.scrape import WebScrape
 
 nest_asyncio.apply()
 
-log = logfire.configure()
-
 client = OpenAIProvider(
     openai_client = AsyncOpenAI(_strict_response_validation=False,
                                 api_key="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"
